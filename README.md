@@ -140,8 +140,9 @@ Return value:
 
 Summary:
 * This function does the same thing than the original accept() function but ignores any information about
-the client. Use the actual [accept()](http://man7.org/linux/man-pages/man2/accept.2.html) function to save
-information about the client.
+the client. 
+* If you wish to save the informations about the new client, use 
+[accept()](http://man7.org/linux/man-pages/man2/accept.2.html)
 
 ## Deployment
 
