@@ -102,7 +102,16 @@ int main(void) {
 ```C
 uint32_t create_ipv4_server(uint16_t server_port, uint8_t sock_type);
 ```
-This function accepts 2 parameters: the port to listen on and the socket type (TCP or UDP)
+Parameters:
+* server_port: the port which the server will be listening on
+* sock_type: the type of socket to use for this server (TCP or UDP)
+
+Return value:
+* a socket file descriptor
+
+Summary:
+The function will create the socket, bind it to the computer's local IP and make sure the
+addresse used can be reused.
 
 
 ## Deployment
