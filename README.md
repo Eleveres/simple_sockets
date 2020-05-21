@@ -24,7 +24,7 @@ gcc -o chat_server chat_server.c simple_sockets.a
 
 Server:
 
-```
+```C
 #include "simple_socket.h"
 #include <strings.h>
 
