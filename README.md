@@ -14,13 +14,13 @@ cd simple_sockets
 make
 ```
 
-## Usage example
+### Compiling
 
 ```
 gcc -o chat_server chat_server.c simple_sockets.a
 ```
 
-### Break down into end to end tests
+## A simple client/server example to send a photo using sockets
 
 Explain what these tests test and why
 
