@@ -110,7 +110,7 @@ Return value:
 * a socket file descriptor
 
 Summary:
-The function will create the socket, bind it to the computer's local IP and make sure the
+* The function will create the socket, bind it to the computer's local IP and make sure the
 addresse used can be reused.
 
 
