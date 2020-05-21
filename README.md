@@ -139,7 +139,7 @@ Return value:
 * a new socket file descriptor corresponding to the new client connection
 
 Summary:
-* This function does the same thing as the original accept() function but ignore any information about
+* This function does the same thing than the original accept() function but ignore any information about
 the client. Use the actual [accept()](http://man7.org/linux/man-pages/man2/accept.2.html) to save
 information about the client.
 
