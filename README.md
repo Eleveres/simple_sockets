@@ -170,9 +170,9 @@ Parameters:
 * buffer: the buffer to fill up with the received data
 * len: the requested amount of bytes to receive before the function returns
 * addr: a pointer to a sockaddr structure that will be filled with the information of the sender,
-this paramter will be ignored when using a socket in a connected mode (probably TCP)
+this paramter will be ignored when using a socket in a connected mode (TCP)
 * addr_len: a pointer to a socklen_t element that will be replaced with the size of addr,
-this paramter will be ignored when using a socket in a connected mode (probably TCP)
+this paramter will be ignored when using a socket in a connected mode (TCP)
 
 Return value:
 * a boolean value indicating if the operation has succeed or failed
@@ -181,6 +181,29 @@ Summary:
 * The function will call the [recv()](http://man7.org/linux/man-pages/man2/recv.2.html) function repeatedly 
 until the the amount of bytes requested by the len paramter is received. The function uses a fixed buffer size
 to increase performance and will save the extra bytes read in a static variable.
+When using this function on a socket in connection mode (TCP) the last 2 paramters can be set to NULL.
+
+### sendall():
+```C
+bool sendall(uint64_t sock, void *buffer, uint64_t len,
+			struct sockaddr *addr, socklen_t *addr_len);
+```
+Parameters:
+* sock: socket file descriptor to write to
+* buffer: the buffer containing the data to send
+* len: the size of the buffer in bytes
+* addr: a pointer to a sockaddr structure containing the information of the receiver,
+this paramter will be ignored when using a socket in a connected mode (TCP)
+* addr_len: the size of the addr structure,
+this paramter will be ignored when using a socket in a connected mode (TCP)
+
+Return value:
+* a boolean value indicating if the operation has succeed or failed
+
+Summary:
+* The function will call the [send()](http://man7.org/linux/man-pages/man2/send.2.html) function repeatedly 
+until the the amount of bytes specified by the len paramter has been sent.
+When using this function on a socket in connection mode (TCP) the last 2 paramters can be set to NULL and 0.
 
 ## Deployment
 
