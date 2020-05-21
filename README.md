@@ -45,7 +45,7 @@ int main(void) {
 
 	/* Create a tcp4 server, starts listening on port 8000
 	for incoming connections and accept the first one we get */
-	server_sock = create_ipv4_server(8000, SOCK_STREAM);
+	server_sock = create_ipv4_server(8000, TCP);
 	listen(server_sock, BACKLOG);
 	client_sock = accept_connection(server_sock);
 
