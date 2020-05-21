@@ -128,6 +128,20 @@ Summary:
 * The function will create the socket, bind it to the computer's local IPv6 address and make sure that
 the addresse can be reused (to avoid bind() errors).
 
+### accept_connection():
+```C
+uint32_t accept_connection(uint32_t server_sock);
+```
+Parameters:
+* server_sock: the server's socket file descriptor. 
+
+Return value:
+* a new socket file descriptor corresponding to the new client connection
+
+Summary:
+* This function does the same thing as the original accept() function but ignore any information about
+the client. Use the actual [accept()](http://man7.org/linux/man-pages/man2/accept.2.html) to save
+information about the client.
 
 ## Deployment
 
