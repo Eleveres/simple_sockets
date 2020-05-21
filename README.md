@@ -133,7 +133,7 @@ the addresse can be reused (to avoid bind() errors).
 uint32_t accept_connection(uint32_t server_sock);
 ```
 Parameters:
-* server_sock: the server's socket file descriptor. 
+* server_sock: the server's socket file descriptor
 
 Return value:
 * a new socket file descriptor corresponding to the new client connection
@@ -142,7 +142,23 @@ Summary:
 * This function does the same thing than the original accept() function but ignores any information about
 the client. 
 * If you wish to save the informations about the new client, use 
-[accept()](http://man7.org/linux/man-pages/man2/accept.2.html)
+[accept()](http://man7.org/linux/man-pages/man2/accept.2.html).
+
+### connect_to_server():
+```C
+uint32_t connect_to_server(const char *host, const char *port);
+```
+Parameters:
+* host: the server's domain or IP address
+* port: the port the server is listening on
+
+Return value:
+* a socket file descriptor corresponding to the new connection to the server 
+
+Summary:
+* The function will find out the server's IP addresses using 
+[getaddrinfo()](http://man7.org/linux/man-pages/man3/getaddrinfo.3.html)
+and will connect to the first one it can.
 
 ## Deployment
 
