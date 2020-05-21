@@ -160,6 +160,22 @@ Summary:
 [getaddrinfo()](http://man7.org/linux/man-pages/man3/getaddrinfo.3.html)
 and will connect to the first one it can.
 
+### create_ipv6_server():
+```C
+bool recvall(uint64_t sock, void *buffer, uint64_t len,
+					struct sockaddr_in *addr, socklen_t *addr_len);
+```
+Parameters:
+* server_port: the port which the server will be listening on
+* sock_type: the type of socket to use for this server (TCP or UDP)
+
+Return value:
+* a socket file descriptor
+
+Summary:
+* The function will create the socket, bind it to the computer's local IPv6 address and make sure that
+the addresse can be reused (to avoid bind() errors).
+
 ## Deployment
 
 Add additional notes about how to deploy this on a live system
