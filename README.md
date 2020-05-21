@@ -6,14 +6,6 @@ A simple C libaray to make the use of unix sockets easier and more understandabl
 
 To use this library simply clone the repository and compile the sources using the makefile.
 
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
 ### Installing
 
 ```
