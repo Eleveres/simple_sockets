@@ -98,9 +98,11 @@ int main(void) {
 
 ## Documentation
 
+**create_ipv4_server():**
 ```C
 uint32_t create_ipv4_server(uint16_t server_port, uint8_t sock_type);
 ```
+This function accepts 2 parameters: the port to listen on and the socket type (TCP or UDP)
 
 
 ## Deployment
