@@ -110,8 +110,23 @@ Return value:
 * a socket file descriptor
 
 Summary:
-* The function will create the socket, bind it to the computer's local IP and make sure the
-addresse used can be reused.
+* The function will create the socket, bind it to the computer's local IPv4 address and make sure that
+the addresse can be reused (to avoid bind() errors).
+
+**create_ipv6_server():**
+```C
+uint32_t create_ipv6_server(uint16_t server_port, uint8_t sock_type);
+```
+Parameters:
+* server_port: the port which the server will be listening on
+* sock_type: the type of socket to use for this server (TCP or UDP)
+
+Return value:
+* a socket file descriptor
+
+Summary:
+* The function will create the socket, bind it to the computer's local IPv6 address and make sure that
+the addresse can be reused (to avoid bind() errors).
 
 
 ## Deployment
