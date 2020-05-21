@@ -160,21 +160,27 @@ Summary:
 [getaddrinfo()](http://man7.org/linux/man-pages/man3/getaddrinfo.3.html)
 and will connect to the first one it can.
 
-### create_ipv6_server():
+### recvall():
 ```C
 bool recvall(uint64_t sock, void *buffer, uint64_t len,
-					struct sockaddr_in *addr, socklen_t *addr_len);
+			struct sockaddr *addr, socklen_t *addr_len);
 ```
 Parameters:
-* server_port: the port which the server will be listening on
-* sock_type: the type of socket to use for this server (TCP or UDP)
+* sock: socket file descriptor to receive from
+* buffer: the buffer to fill up with the received data
+* len: the requested amount of bytes to receive before the function returns
+* addr: a pointer to a sockaddr structure that will be filled with the information of the sender,
+this paramter will be ignored when using a socket in a connected mode (probably TCP)
+* addr_len: a pointer to a socklen_t element that will be replaced with the size of addr,
+this paramter will be ignored when using a socket in a connected mode (probably TCP)
 
 Return value:
-* a socket file descriptor
+* a boolean value indicating if the operation has succeed or failed
 
 Summary:
-* The function will create the socket, bind it to the computer's local IPv6 address and make sure that
-the addresse can be reused (to avoid bind() errors).
+* The function will call the [recv()](http://man7.org/linux/man-pages/man2/recv.2.html) function repeatedly 
+until the the amount of bytes requested by the len paramter is received. The function uses a fixed buffer size
+to increase performance and will save the extra bytes read in a static variable.
 
 ## Deployment
 
