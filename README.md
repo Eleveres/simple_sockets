@@ -38,20 +38,17 @@ int main(void) {
 
 	/* Create a tcp4 server, starts listening on port 8000
 	for incoming connections and accept the first one we get */
-	
 	server_sock = create_ipv4_server(8000, SOCK_STREAM);
 	listen(server_sock, BACKLOG);
 	client_sock = accept_connection(server_sock);
 
 	/* Receive the header containing the file's size and 
 	allocates a buffer to store the data */ 
-	
 	recvall(client_sock, header, HEADER_LENGTH, NULL, NULL);
 	uint64_t data_length = decode_64bit(header, 0);
 	uint8_t *data = malloc(data_length);
 	
 	/* Finally receive the raw data and write it to a file */
-	
 	recvall(client_sock, data, data_length, NULL, NULL);
 	FILE *fp = fopen("success.JPG", "w");
 	fwrite(data, 1, data_length, fp);
