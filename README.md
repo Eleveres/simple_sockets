@@ -98,7 +98,7 @@ int main(void) {
 
 ## Documentation
 
-# create_ipv4_server():
+### create_ipv4_server():
 ```C
 uint32_t create_ipv4_server(uint16_t server_port, uint8_t sock_type);
 ```
@@ -113,7 +113,7 @@ Summary:
 * The function will create the socket, bind it to the computer's local IPv4 address and make sure that
 the addresse can be reused (to avoid bind() errors).
 
-# create_ipv6_server():
+### create_ipv6_server():
 ```C
 uint32_t create_ipv6_server(uint16_t server_port, uint8_t sock_type);
 ```
