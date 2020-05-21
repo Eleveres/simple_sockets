@@ -96,13 +96,12 @@ int main(void) {
 }
 ```
 
-### And coding style tests
+## Documentation
 
-Explain what these tests test and why
+```C
+uint32_t create_ipv4_server(uint16_t server_port, uint8_t sock_type);
+```
 
-```
-Give an example
-```
 
 ## Deployment
 
