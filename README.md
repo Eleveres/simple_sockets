@@ -27,6 +27,7 @@ doesn't check for errors and does not supplies an efficient way of sending files
 (Should read chunks of data not the hole file at once to avoid using to up to much space in the RAM)
 
 
+
 **Server:**
 ```C
 #include "simple_socket.h"
@@ -59,6 +60,7 @@ int main(void) {
 	fclose(fp);
 }
 ```
+
 
 **Client:**
 ```C
