@@ -22,11 +22,11 @@ cd simple_sockets
 make
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+## Usage example
 
-## Running the tests
-
-Explain how to run the automated tests for this system
+```
+gcc -o chat_server chat_server.c simple_sockets.a
+```
 
 ### Break down into end to end tests
 
