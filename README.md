@@ -22,10 +22,34 @@ gcc -o chat_server chat_server.c simple_sockets.a
 
 ## A simple client/server example to send a photo using sockets
 
-Explain what these tests test and why
+Server:
 
 ```
-Give an example
+#include "simple_socket.h"
+#include <strings.h>
+
+
+#define HEADER_LENGTH 8
+
+int main(void) {
+	uint8_t header[HEADER_LENGTH];
+	uint8_t *raw_data;
+	uint32_t server_sock, client_sock;
+
+	server_sock = create_ipv4_server(8000, SOCK_STREAM);
+	listen(server_sock, BACKLOG);
+	client_sock = accept_connection(server_sock);
+
+	recvall(client_sock, header, HEADER_LENGTH, NULL, NULL);
+	uint64_t data_length = decode_64bit(header, 0);
+	uint8_t *data = malloc(data_length);
+	
+	recvall(client_sock, data, data_length, NULL, NULL);
+	FILE *fp = fopen("success.JPG", "w");
+	fwrite(data, 1, data_length, fp);
+	fclose(fp);
+}
+
 ```
 
 ### And coding style tests
