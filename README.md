@@ -285,14 +285,14 @@ Return value:
 * None
 
 Description:
-* This is a simple function used to print bytearray in a nice and clear way.
+* This is a simple function used to print bytearrays in a nice and clear way.
 * Useful for debugging.
 
 Modes:
-* x: print's all the bytes in a hexadecimal format
-* d: print's all the bytes in a decimal format
-* c or cx: print's the printable bytes as characters and the rest as hexadecimal 
-* cd: print's the printable bytes as characters and the rest as decimals 
+* x: print all the bytes in a hexadecimal format
+* d: print all the bytes in a decimal format
+* c or cx: print the printable bytes as characters and the rest as hexadecimal 
+* cd: print the printable bytes as characters and the rest as decimals 
 
 ## Author
 
