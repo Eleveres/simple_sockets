@@ -24,7 +24,7 @@ gcc example.c simple_sockets.a
 
 **Note:** This example should only be used as a demonstration and not production since the code
 doesn't check for errors and does not supplies an efficient way of sending files over sockets. 
-(Should read chunks of data not the hole file at once to avoid using to up to much space in the RAM)
+(Should read chunks of data not the whole file at once to avoid using to up to much space in the RAM)
 
 
 
