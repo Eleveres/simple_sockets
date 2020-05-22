@@ -98,6 +98,18 @@ int main(void) {
 
 ## Documentation
 
+### MACROS:
+```C
+#define MAX_CONNECTIONS 64
+#define BACKLOG 128
+#define BUFFER_SIZE 4096
+```
+These macros can be redefined to suit the purpose of your project.
+
+**MAX_CONNECTIONS:** This macro definies the maximum number of simultaneous connections you can have at the
+same time. Having more connections than the specified value of the macro may result in your application trying to
+read out of it's memory and cause a segmentation fault.
+
 ### create_ipv4_server():
 ```C
 uint32_t create_ipv4_server(uint16_t server_port, uint8_t sock_type);
