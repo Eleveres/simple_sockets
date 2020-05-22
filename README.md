@@ -114,7 +114,14 @@ read out of it's memory and cause a segmentation fault.
 **BACKLOG:**
 * Check the man page of the [listen()](http://man7.org/linux/man-pages/man2/listen.2.html) function to find
 out wich value to set as the backlog.
-* If you don't see the purpose of changing the backlog value, don't, just leave at 128 which is the maximum value used by most systems.
+* If you don't see the purpose of changing the backlog value, don't. Just leave at 128 which is the maximum 
+value used by most systems.
+
+**BUFFER_SIZE:**
+* The macro is used by the recvall and sendall function to determine how much data your app can read or write
+per call.
+* Again, if you don't see the purpose of changing that value, don't. 4K is generally a good buffer size for
+apps communicating over the internet.
 
 ### create_ipv4_server():
 ```C
