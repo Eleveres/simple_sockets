@@ -4,7 +4,7 @@
 void print_bytearray(void *array, uint64_t array_len, const char *mode) 
 {
 	/* prints nicely a bytearray in different formats */
-	
+
 	uint8_t *bytearray = (uint8_t *)array;
 	char *delim = "-----------------------------"
 					"---------------------";

@@ -2,7 +2,7 @@
 
 
 int32_t accept_connection(int32_t server_sock, struct sockaddr *addr, 
-								socklen_t *addr_len)
+							socklen_t *addr_len)
 {
 	/* if the addr parameter is set to NULL the informations about
 	the client's address aren't saved. If the accept() call suceeds

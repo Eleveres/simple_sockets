@@ -6,11 +6,11 @@ int32_t connect_to_server(const char *host, const char *port)
 	/* Finds out the host addresses and connect to the first 
     one it can */
 
-	int32_t sock;
-	struct addrinfo hints = {0};
-	struct addrinfo *servinfo, *p;
+    int32_t sock;
+    struct addrinfo hints = {0};
+    struct addrinfo *servinfo, *p;
 
-	hints.ai_family = AF_UNSPEC;
+    hints.ai_family = AF_UNSPEC;
     hints.ai_socktype = SOCK_STREAM;
 
     if (getaddrinfo(host, port, &hints, &servinfo) != 0)

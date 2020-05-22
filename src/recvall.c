@@ -7,12 +7,12 @@ void left_shift_array(void *array, uint64_t array_length, uint64_t bytes)
 	bytes */
 
 	int8_t *bytearray = (int8_t *)array; 
-    uint64_t i = -1;
+	uint64_t i = -1;
 
-    while (++i < array_length - bytes)
-        bytearray[i] = bytearray[i + bytes];
-    while (i < array_length)
-        bytearray[i++] = 0;
+	while (++i < array_length - bytes)
+	    bytearray[i] = bytearray[i + bytes];
+	while (i < array_length)
+	    bytearray[i++] = 0;
 }
 
 bool recvall(int32_t sock, void *buffer, uint32_t len,
@@ -20,7 +20,7 @@ bool recvall(int32_t sock, void *buffer, uint32_t len,
 {
 	/* calls recv() until the amount of bytes specified by the 
 	len parameter has been received */
-	
+
 	static uint8_t tmp[MAX_CONNECTIONS + 3][BUFFER_SIZE] = {{0}};
 	static uint16_t tmp_len[MAX_CONNECTIONS + 3] = {0};
 	uint8_t in_buffer[BUFFER_SIZE] = {0};
