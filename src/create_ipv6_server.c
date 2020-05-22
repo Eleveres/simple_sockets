@@ -3,7 +3,8 @@
 
 int32_t create_ipv6_server(uint16_t server_port, uint8_t sock_type)
 {
-	/* create's a tcp server on an ipv6 address */
+	/* create's a new socket file descriptor and binds it to the
+	local IPv6 address of the computer */
 
 	int32_t sock;
 	struct sockaddr_in6 addr = {0};

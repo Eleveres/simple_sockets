@@ -3,7 +3,8 @@
 
 int32_t create_ipv4_server(uint16_t server_port, uint8_t sock_type)
 {
-	/* create's a tcp server on an ipv4 address */
+	/* create's a new socket file descriptor and binds it to the
+	local IPv4 address of the computer */
 
 	int32_t sock;
 	struct sockaddr_in addr = {0};

@@ -4,7 +4,8 @@
 bool sendall(int32_t sock, void *buffer, uint32_t len,
 				struct sockaddr *addr, socklen_t addr_len)
 {
-	/* will keeping sending until the buffer has been emptied */
+	/* calls send() until the amount of bytes specified by
+	the len parameter has been sent */
 
 	uint8_t *buffer_ptr = (uint8_t *)buffer;
 	uint16_t sent;

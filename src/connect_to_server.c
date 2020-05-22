@@ -3,7 +3,8 @@
 
 int32_t connect_to_server(const char *host, const char *port)
 {
-	/* connects to a tcp4/tcp6 server and returns the corresponding socket */
+	/* Finds out the host addresses and connect to the first 
+    one it can */
 
 	int32_t sock;
 	struct addrinfo hints = {0};

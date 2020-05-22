@@ -18,7 +18,8 @@ void left_shift_array(void *array, uint64_t array_length, uint64_t bytes)
 bool recvall(int32_t sock, void *buffer, uint32_t len,
 					struct sockaddr *addr, socklen_t *addr_len)
 {
-	/* calls recv until the amount specified in bytes has been received */
+	/* calls recv() until the amount of bytes specified by the 
+	len parameter has been received */
 	
 	static uint8_t tmp[MAX_CONNECTIONS + 3][BUFFER_SIZE] = {{0}};
 	static uint16_t tmp_len[MAX_CONNECTIONS + 3] = {0};

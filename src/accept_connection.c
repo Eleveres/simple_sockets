@@ -4,8 +4,11 @@
 int32_t accept_connection(int32_t server_sock, struct sockaddr *addr, 
 								socklen_t *addr_len)
 {
-	/* flushes the recvall tmp array to avoid unexpected messages */
-	/* accepts a new connection and returns the corresponding socket */
+	/* if the addr parameter is set to NULL the informations about
+	the client's address aren't saved. If the accept() call suceeds
+	the tmp buffer of the socket file descriptor is flushed to avoid
+	collision with previous messages from the previous client that
+	used the same file descriptor. */
 
 	int32_t sock;
 
