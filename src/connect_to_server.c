@@ -3,7 +3,7 @@
 
 int32_t connect_to_server(const char *host, const char *port)
 {
-	/* Finds out the host addresses and connect to the first 
+    /* Finds out the host addresses and connect to the first 
     one it can */
 
     int32_t sock;
