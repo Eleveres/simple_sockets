@@ -31,7 +31,6 @@ doesn't check for errors and does not supplies an efficient way of sending files
 **Server:**
 ```C
 #include "simple_socket.h"
-#include <strings.h>
 
 
 #define HEADER_LENGTH 8
