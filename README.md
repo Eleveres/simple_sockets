@@ -114,7 +114,7 @@ read out of it's memory and cause a segmentation fault.
 **BACKLOG:**
 * Check the man page of the [listen()](http://man7.org/linux/man-pages/man2/listen.2.html) function to find
 out wich value to set as the backlog.
-* If you don't see the purpose of changing the backlog value, don't. Just leave at 128 which is the maximum 
+* If you don't see the purpose of changing the backlog value, don't. Just leave it at 128 which is the maximum 
 value used by most systems.
 
 **BUFFER_SIZE:**
