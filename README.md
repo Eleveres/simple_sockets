@@ -1,6 +1,6 @@
 # Simple sockets
 
-A simple C libaray to make the use of unix sockets easier and more understandable.
+A simple C library to make the use of unix sockets easier and more understandable.
 
 ## Getting Started
 
