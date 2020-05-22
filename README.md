@@ -111,6 +111,11 @@ These macros can be redefined to suit the purpose of your project.
 * Having more connections than the specified value of the macro may result in your application trying to
 read out of it's memory and cause a segmentation fault.
 
+**BACKLOG:**
+* Check the man page of the [listen()](http://man7.org/linux/man-pages/man2/listen.2.html) function to find
+out wich value to set as the backlog.
+* If you don't see the purpose of changing the backlog value, don't, just leave at 128 which is the maximum value used by most systems.
+
 ### create_ipv4_server():
 ```C
 int32_t create_ipv4_server(uint16_t server_port, uint8_t sock_type);
@@ -122,7 +127,7 @@ Parameters:
 Return value:
 * a socket file descriptor
 
-Summary:
+Description:
 * The function will create the socket, bind it to the computer's local IPv4 address and make sure that
 the addresse can be reused (to avoid bind() errors).
 
@@ -137,7 +142,7 @@ Parameters:
 Return value:
 * a socket file descriptor
 
-Summary:
+Description:
 * The function will create the socket, bind it to the computer's local IPv6 address and make sure that
 the addresse can be reused (to avoid bind() errors).
 
@@ -154,7 +159,7 @@ Parameters:
 Return value:
 * a new socket file descriptor corresponding to the new client connection
 
-Summary:
+Description:
 * This function **must** be used to accept new connection if you plan on using the recvall() function. This is
 because the accept_connection() function is in charge of flushing the recvall tmp buffer for the new socket file
 descriptor.
@@ -172,7 +177,7 @@ Parameters:
 Return value:
 * a socket file descriptor corresponding to the new connection to the server 
 
-Summary:
+Description:
 * The function will find out the server's IP addresses using 
 [getaddrinfo()](http://man7.org/linux/man-pages/man3/getaddrinfo.3.html)
 and will connect to the first one it can.
@@ -194,7 +199,7 @@ this paramter will be ignored when using a socket in a connected mode (TCP)
 Return value:
 * a boolean value indicating if the operation has succeed or failed
 
-Summary:
+Description:
 * The function will call the [recv()](http://man7.org/linux/man-pages/man2/recv.2.html) function repeatedly 
 until the the amount of bytes requested by the len paramter is received. The function uses a fixed buffer size
 to increase performance and will save the extra bytes read in a static array.
@@ -221,7 +226,7 @@ this paramter will be ignored when using a socket in a connected mode (TCP)
 Return value:
 * a boolean value indicating if the operation has succeed or failed
 
-Summary:
+Description:
 * The function will call the [send()](http://man7.org/linux/man-pages/man2/send.2.html) function repeatedly 
 until the the amount of bytes specified by the len paramter has been sent.
 When using this function on a socket in connection mode (TCP) the last 2 parameters can be set to NULL and 0.
@@ -239,7 +244,7 @@ Parameters:
 Return value:
 * None
 
-Summary:
+Description:
 * These functions allow you to encode 16, 32 and 64 bit integer into byetarrays.
 * Useful for creating network headers.
 
@@ -256,7 +261,7 @@ Parameters:
 Return value:
 * The decoded value in a 16, 32 or 64 bit integer, depending on the used function
 
-Summary:
+Description:
 * These functions allow you to decode 16, 32 and 64 bit integer from byetarrays.
 * Useful for decoding network headers.
 
