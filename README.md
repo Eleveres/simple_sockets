@@ -98,7 +98,7 @@ int main(void) {
 
 ## Documentation
 
-### MACROS:
+### Macros:
 ```C
 #define MAX_CONNECTIONS 64
 #define BACKLOG 128
@@ -118,7 +118,7 @@ out wich value to set as the backlog.
 value used by most systems.
 
 **BUFFER_SIZE:**
-* The macro is used by the recvall and sendall function to determine how much data your app can read or write
+* This macro is used by the recvall and sendall function to determine how much data your app can read or write
 per call.
 * Again, if you don't see the purpose of changing that value, don't. 4K is generally a good buffer size for
 apps communicating over the internet.
