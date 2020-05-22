@@ -181,7 +181,7 @@ Summary:
 * The function will call the [recv()](http://man7.org/linux/man-pages/man2/recv.2.html) function repeatedly 
 until the the amount of bytes requested by the len paramter is received. The function uses a fixed buffer size
 to increase performance and will save the extra bytes read in a static array.
-When using this function on a socket in connection mode (TCP) the last 2 paramters can be set to NULL.
+When using this function on a socket in connection mode (TCP) the last 2 parameters can be set to NULL.
 
 ### sendall():
 ```C
@@ -203,7 +203,7 @@ Return value:
 Summary:
 * The function will call the [send()](http://man7.org/linux/man-pages/man2/send.2.html) function repeatedly 
 until the the amount of bytes specified by the len paramter has been sent.
-When using this function on a socket in connection mode (TCP) the last 2 paramters can be set to NULL and 0.
+When using this function on a socket in connection mode (TCP) the last 2 parameters can be set to NULL and 0.
 
 ## Deployment
 
