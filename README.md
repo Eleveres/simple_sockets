@@ -119,7 +119,7 @@ value used by most systems.
 
 **BUFFER_SIZE:**
 * This macro is used by the recvall and sendall function to determine how much data your app can read or write
-per call.
+per call of the recv/send functions.
 * Again, if you don't see the purpose of changing that value, don't. 4K is generally a good buffer size for
 apps communicating over the internet.
 
