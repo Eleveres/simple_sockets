@@ -67,7 +67,6 @@ int main(void) {
 **Client:**
 ```C
 #include "simple_socket.h"
-#include <strings.h>
 #include <sys/stat.h>
 
 
