@@ -272,6 +272,24 @@ Description:
 * These functions allow you to decode 16, 32 and 64 bit integer from byetarrays.
 * Useful for decoding network headers.
 
+### print_bytearray():
+```C
+void print_bytearray(void *array, uint64_t array_len, const char *mode);
+```
+Parameters:
+* array: the bytearray to print the values of
+* array_len: the length in bytes of the array (or the number of bytes you wish to print)
+* mode: the printing mode (see description for different modes)
+
+Return value:
+* None
+
+Description:
+* This is a simple function used to print bytearray in a nice and clear way.
+* Useful for debugging.
+* Different modes:
+** hello
+
 ## Author
 
 * **Ravi Pousseur**
