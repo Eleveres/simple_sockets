@@ -272,7 +272,7 @@ Description:
 * These functions allow you to decode 16, 32 and 64 bit integer from byetarrays.
 * Useful for decoding network headers.
 
-## Authors
+## Author
 
 * **Ravi Pousseur**
 
