@@ -20,7 +20,7 @@ make
 gcc example.c simple_sockets.a
 ```
 
-## A simple client/server example to send a photo using sockets
+## A simple client/server example to send a photo using simple_sockets
 
 **Note:** This example should only be used as a demonstration and not production since the code
 doesn't check for errors and does not supplies an efficient way of sending files over sockets. 
