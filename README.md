@@ -205,6 +205,25 @@ Summary:
 until the the amount of bytes specified by the len paramter has been sent.
 When using this function on a socket in connection mode (TCP) the last 2 parameters can be set to NULL and 0.
 
+### encode_nbit():
+```C
+void encode_64bit(uint64_t n, uint8_t *buffer, uint16_t index);
+void encode_32bit(uint32_t n, uint8_t *buffer, uint16_t index);
+void encode_16bit(uint16_t n, uint8_t *buffer, uint16_t index);
+```
+Parameters:
+* bytearray: the bytearray to encode the number to
+* index: the index of the byterray where to encode the number
+
+Return value:
+* None
+
+Summary:
+* These functions allow you to encode 16, 32 and 64 bit integer into byetarrays.
+* Useful for creating network headers.
+
+
+
 ## Deployment
 
 Add additional notes about how to deploy this on a live system
