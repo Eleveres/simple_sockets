@@ -5,20 +5,27 @@
 #define HEADER_LENGTH 8
 
 int main(void) {
-	uint8_t buffer[50] = {0};
-	struct sockaddr_in addr;
-	socklen_t addr_len;
-	
-	int8_t serv_sock = create_ipv4_server(8000, TCP);
-	listen(serv_sock, BACKLOG);
+	int8_t server_sock, client_sock;
+	uint8_t header[HEADER_LENGTH];
+	uint8_t *raw_data;
+	uint64_t data_len;
+	FILE *fp;
 
-	while (true) {
-		int8_t client_sock = accept_connection(serv_sock, (struct sockaddr *)&addr, &addr_len);
-		recvall(client_sock, buffer, 3, NULL, NULL);
-		printf("%s\n", buffer);
-		char str[INET_ADDRSTRLEN] = {0};
-		inet_ntop(AF_INET, &addr.sin_addr, str, INET_ADDRSTRLEN);
-		printf("%s\n", str);
-		close(client_sock);
-	}
+	/* Create a tcp4 server, starts listening on port 8000
+	for incoming connections and accept the first one we get */
+	server_sock = create_ipv4_server(8000, TCP);
+	listen(server_sock, BACKLOG);
+	client_sock = accept_connection(server_sock, NULL, NULL);
+
+	/* Receive the header containing the file's size and 
+	allocates a buffer to store the data */ 
+	recvall(client_sock, header, HEADER_LENGTH, NULL, NULL);
+	data_len = decode_64bit(header, 0);
+	raw_data = malloc(data_len);
+	
+	/* Finally receive the raw data and write it to a file */
+	recvall(client_sock, raw_data, data_len, NULL, NULL);
+	fp = fopen("success.JPG", "w");
+	fwrite(raw_data, 1, data_len, fp);
+	fclose(fp);
 }
