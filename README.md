@@ -222,6 +222,23 @@ Summary:
 * These functions allow you to encode 16, 32 and 64 bit integer into byetarrays.
 * Useful for creating network headers.
 
+### decode_nbit():
+```C
+uint64_t decode_64bit(uint8_t *byetarray, uint16_t index);
+uint32_t decode_32bit(uint8_t *byetarray, uint16_t index);
+uint16_t decode_16bit(uint8_t *byetarray, uint16_t index);
+```
+Parameters:
+* bytearray: the bytearray to decode the number from
+* index: the index of the byterray where the number to decode is
+
+Return value:
+* The decoded value in a 16, 32 or 64 bit integer, depending on the used function
+
+Summary:
+* These functions allow you to decode 16, 32 and 64 bit integer from byetarrays.
+* Useful for decoding network headers.
+
 
 
 ## Deployment
