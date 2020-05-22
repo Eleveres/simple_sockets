@@ -159,7 +159,7 @@ Summary:
 because the accept_connection() function is in charge of flushing the recvall tmp buffer for the new socket file
 descriptor.
 * If you really wish to use the orginial [accept()](http://man7.org/linux/man-pages/man2/accept.2.html) function
-check how to flush manually the recvall tmp buffer in the documentation of the recvall() function.
+check how to flush manually the recvall tmp buffer a bit lower in the documentation.
 
 ### connect_to_server():
 ```C
@@ -199,6 +199,10 @@ Summary:
 until the the amount of bytes requested by the len paramter is received. The function uses a fixed buffer size
 to increase performance and will save the extra bytes read in a static array.
 When using this function on a socket in connection mode (TCP) the last 2 parameters can be set to NULL.
+
+Extra:
+* If you wish for some reason to flush the tmp buffer of a socket's file descriptor you can call the recvall
+function with a buffer set to NULL and the len parameter to 0.
 
 ### sendall():
 ```C
