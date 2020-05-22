@@ -81,7 +81,7 @@ int main(void) {
 	uint8_t server_sock;
 
 	/* Finds out the size of the file to send, allocates the appropriate
-	space and then load sour file into the buffer*/
+	space for it and then load sour file into the buffer*/
 	fp = fopen("cute_cat.JPG", "r");
 	fstat(fileno(fp), &info);
 	uint8_t *data = malloc(HEADER_LENGTH + info.st_size);
