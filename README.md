@@ -37,7 +37,7 @@ doesn't check for errors and does not supplies an efficient way of sending files
 #define HEADER_LENGTH 8
 
 int main(void) {
-	uint8_t server_sock, client_sock;
+	int8_t server_sock, client_sock;
 	uint8_t header[HEADER_LENGTH];
 	uint8_t *raw_data;
 	uint64_t data_len;
@@ -78,7 +78,7 @@ int main(void) {
 	FILE *fp;
 	struct stat info;
 	uint8_t *raw_data;
-	uint8_t server_sock;
+	int8_t server_sock;
 
 	/* Finds out the size of the file to send, allocates the appropriate
 	space for it and then load our file into the buffer*/
@@ -113,7 +113,7 @@ read out of it's memory and cause a segmentation fault.
 
 ### create_ipv4_server():
 ```C
-uint32_t create_ipv4_server(uint16_t server_port, uint8_t sock_type);
+int32_t create_ipv4_server(uint16_t server_port, uint8_t sock_type);
 ```
 Parameters:
 * server_port: the port which the server will be listening on
@@ -128,7 +128,7 @@ the addresse can be reused (to avoid bind() errors).
 
 ### create_ipv6_server():
 ```C
-uint32_t create_ipv6_server(uint16_t server_port, uint8_t sock_type);
+int32_t create_ipv6_server(uint16_t server_port, uint8_t sock_type);
 ```
 Parameters:
 * server_port: the port which the server will be listening on
@@ -143,23 +143,27 @@ the addresse can be reused (to avoid bind() errors).
 
 ### accept_connection():
 ```C
-uint32_t accept_connection(uint32_t server_sock);
+int32_t accept_connection(int32_t server_sock, struct sockaddr *addr, 
+				socklen_t *addr_len)
 ```
 Parameters:
 * server_sock: the server's socket file descriptor
+* addr: a pointer to a sockaddr struct that will be filled up with the information of the address of the new client
+* addr_len: a pointer to a socklen_t element that will be replaced with the size of addr
 
 Return value:
 * a new socket file descriptor corresponding to the new client connection
 
 Summary:
-* This function does the same thing than the original accept() function but ignores any information about
-the client. 
-* If you wish to save the informations about the new client, use 
-[accept()](http://man7.org/linux/man-pages/man2/accept.2.html).
+* This function **must** be used to accept new connection if you plan on using the recvall() function. This is
+because the accept_connection() function is in charge of flushing the recvall tmp buffer for the new socket file
+descriptor.
+* If you really wish to use the orginial [accept()](http://man7.org/linux/man-pages/man2/accept.2.html) function
+check how to flush manually the recvall tmp buffer in the documentation of the recvall() function.
 
 ### connect_to_server():
 ```C
-uint32_t connect_to_server(const char *host, const char *port);
+int32_t connect_to_server(const char *host, const char *port);
 ```
 Parameters:
 * host: the server's domain or IP address
@@ -175,7 +179,7 @@ and will connect to the first one it can.
 
 ### recvall():
 ```C
-bool recvall(uint64_t sock, void *buffer, uint64_t len,
+bool recvall(int32_t sock, void *buffer, uint32_t len,
 			struct sockaddr *addr, socklen_t *addr_len);
 ```
 Parameters:
@@ -198,7 +202,7 @@ When using this function on a socket in connection mode (TCP) the last 2 paramet
 
 ### sendall():
 ```C
-bool sendall(uint64_t sock, void *buffer, uint64_t len,
+bool sendall(int32_t sock, void *buffer, uint32_t len,
 			struct sockaddr *addr, socklen_t *addr_len);
 ```
 Parameters:
