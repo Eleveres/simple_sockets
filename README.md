@@ -106,8 +106,9 @@ int main(void) {
 ```
 These macros can be redefined to suit the purpose of your project.
 
-**MAX_CONNECTIONS:** This macro definies the maximum number of simultaneous connections you can have at the
-same time. Having more connections than the specified value of the macro may result in your application trying to
+**MAX_CONNECTIONS:** 
+* This macro definies the maximum number of simultaneous connections you can have at the same time. 
+* Having more connections than the specified value of the macro may result in your application trying to
 read out of it's memory and cause a segmentation fault.
 
 ### create_ipv4_server():
