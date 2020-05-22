@@ -47,7 +47,7 @@ int main(void) {
 	for incoming connections and accept the first one we get */
 	server_sock = create_ipv4_server(8000, TCP);
 	listen(server_sock, BACKLOG);
-	client_sock = accept_connection(server_sock);
+	client_sock = accept_connection(server_sock, NULL, NULL);
 
 	/* Receive the header containing the file's size and 
 	allocates a buffer to store the data */ 
