@@ -1,7 +1,8 @@
 #include "../simple_socket.h"
 
 
-int32_t create_ipv4_server(uint16_t server_port, uint8_t sock_type, bool set_nonblock)
+int32_t create_ipv4_server(uint16_t server_port, uint8_t sock_type, 
+                                bool set_nonblock)
 {
     /* create's a new socket file descriptor and binds it to the
     local IPv4 address of the computer */
