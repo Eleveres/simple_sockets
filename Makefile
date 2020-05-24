@@ -4,7 +4,7 @@ CC = gcc
 
 COPTIONS = -c
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Wextra
 
 LIBCC = ar
 

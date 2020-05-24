@@ -16,12 +16,12 @@
 #define BACKLOG 128
 #define BUFFER_SIZE 4096
 
-#define TCP SOCK_STREAM
-#define UDP SOCK_DGRAM
+#define TCP IPPROTO_TCP
+#define UDP IPPROTO_UDP
 
 /* sockets functions */
-int32_t create_ipv4_server(uint16_t server_port, uint8_t sock_type, bool set_nonblock);
-int32_t create_ipv6_server(uint16_t server_port, uint8_t sock_type, bool set_nonblock);
+int32_t create_ipv4_server(uint16_t server_port, uint8_t protocol, bool set_nonblock);
+int32_t create_ipv6_server(uint16_t server_port, uint8_t protocol, bool set_nonblock);
 int32_t connect_to_server(const char *host, const char *port);
 int32_t accept_connection(int32_t server_sock, struct sockaddr *addr, socklen_t *addr_len);
 bool sendall(int32_t sock, void *buffer, uint32_t len, struct sockaddr *addr, socklen_t addr_len);
