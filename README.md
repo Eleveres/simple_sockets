@@ -116,8 +116,8 @@ out which value to set as the backlog.
 value used by most systems.
 
 **BUFFER_SIZE:**
-* This macro is used by the recvall and sendall function to determine how much data your app can read or write
-per call of the recv/send functions.
+* This macro is used by the recvall function to determine how much data your app can read per call of the 
+recv function.
 * Again, if you don't see the purpose of changing that value, don't. 4K is generally a good buffer size for
 apps communicating over the internet.
 
