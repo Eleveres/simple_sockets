@@ -1,7 +1,7 @@
 #include "../simple_socket.h"
 
 
-int32_t create_ipv6_server(uint16_t server_port, uint8_t sock_type, bool block)
+int32_t create_ipv6_server(uint16_t server_port, uint8_t sock_type, bool set_nonblock)
 {
     /* create's a new socket file descriptor and binds it to the
     local IPv6 address of the computer */
@@ -15,7 +15,7 @@ int32_t create_ipv6_server(uint16_t server_port, uint8_t sock_type, bool block)
 
     if ((sock = socket(PF_INET, sock_type, IPPROTO_TCP)) < 0)
         return -1;
-    if (block == false)
+    if (set_nonblock == true)
         fcntl(sock, F_SETFL, O_NONBLOCK);
     if (setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &(int){1}, sizeof(int)) < 0)
         return -1;
