@@ -15,7 +15,7 @@ int32_t create_ipv4_server(uint16_t server_port, uint8_t sock_type, bool block)
 
     if ((sock = socket(PF_INET, sock_type, IPPROTO_TCP)) < 0)
         return -1;
-    if (block == true)
+    if (block == false)
         fcntl(sock, F_SETFL, O_NONBLOCK);
     if (setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &(int){1}, sizeof(int)) < 0)
         return -2;
