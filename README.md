@@ -191,8 +191,7 @@ and will connect to the first one it can.
 
 ### recvall():
 ```C
-bool recvall(int32_t sock, void *buffer, uint32_t len,
-			struct sockaddr *addr, socklen_t *addr_len);
+bool recvall(int32_t sock, void *buffer, uint32_t len, struct sockaddr *addr, socklen_t *addr_len);
 ```
 Parameters:
 * sock: socket file descriptor to receive from
