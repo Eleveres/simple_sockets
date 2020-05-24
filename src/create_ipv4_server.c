@@ -19,8 +19,8 @@ int32_t create_ipv4_server(uint16_t server_port, uint8_t sock_type,
     if (set_nonblock == true)
         fcntl(sock, F_SETFL, O_NONBLOCK);
     if (setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &(int){1}, sizeof(int)) < 0)
-        return -2;
+        return -1;
     if (bind(sock, (struct sockaddr *)&addr, sizeof(addr)) < 0)
-        return -3;
+        return -1;
     return sock;
 }
