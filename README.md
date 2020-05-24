@@ -155,7 +155,7 @@ the address can be reused (to avoid bind() errors).
 
 ### accept_connection():
 ```C
-int32_t accept_connection(int32_t server_sock, struct sockaddr *addr, socklen_t *addr_len)
+int32_t accept_connection(int32_t server_sock, struct sockaddr *addr, socklen_t *addr_len);
 ```
 Parameters:
 * server_sock: the server's socket file descriptor
@@ -190,8 +190,7 @@ and will connect to the first one it can.
 
 ### recvall():
 ```C
-bool recvall(int32_t sock, void *buffer, uint32_t len, 
-			struct sockaddr *addr, socklen_t *addr_len);
+bool recvall(int32_t sock, void *buffer, uint32_t len, struct sockaddr *addr, socklen_t *addr_len);
 ```
 Parameters:
 * sock: socket file descriptor to receive from
@@ -217,8 +216,7 @@ function with a buffer set to NULL and the len parameter to 0.
 
 ### sendall():
 ```C
-bool sendall(int32_t sock, void *buffer, uint32_t len,
-			struct sockaddr *addr, socklen_t *addr_len);
+bool sendall(int32_t sock, void *buffer, uint32_t len, struct sockaddr *addr, socklen_t *addr_len);
 ```
 Parameters:
 * sock: socket file descriptor to write to
