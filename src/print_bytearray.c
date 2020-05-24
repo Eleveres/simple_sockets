@@ -25,7 +25,7 @@ void print_bytearray(void *array, uint64_t array_len, const char *mode)
             printf("%4x", bytearray[i]);
         }
         else {
-            printf("%5d", bytearray[i]);
+            printf("%4d", bytearray[i]);
         }
         if ((i + 1) % 10 == 0) printf("\n");
         if ((i + 1) % 150 == 0) printf("%s\n", delim);
