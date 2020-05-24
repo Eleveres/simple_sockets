@@ -44,7 +44,7 @@ int main(void) {
 
 	/* Create a tcp4 server, start listening on port 8000
 	for incoming connections and accept the first one */
-	server_sock = create_ipv4_server(8000, TCP);
+	server_sock = create_ipv4_server(8000, TCP, false);
 	listen(server_sock, BACKLOG);
 	client_sock = accept_connection(server_sock, NULL, NULL);
 
@@ -123,11 +123,12 @@ apps communicating over the internet.
 
 ### create_ipv4_server():
 ```C
-int32_t create_ipv4_server(uint16_t server_port, uint8_t sock_type);
+int32_t create_ipv4_server(uint16_t server_port, uint8_t sock_type, bool set_nonblock);
 ```
 Parameters:
 * server_port: the port which the server will be listening on
 * sock_type: the type of socket to use for this server (TCP or UDP)
+* set_nonblock: set the socket in a non blocking mode
 
 Return value:
 * a socket file descriptor
@@ -138,11 +139,12 @@ the address can be reused (to avoid bind() errors).
 
 ### create_ipv6_server():
 ```C
-int32_t create_ipv6_server(uint16_t server_port, uint8_t sock_type);
+int32_t create_ipv6_server(uint16_t server_port, uint8_t sock_type, bool set_nonblock);
 ```
 Parameters:
 * server_port: the port which the server will be listening on
 * sock_type: the type of socket to use for this server (TCP or UDP)
+* set_nonblock: set the socket in a non blocking mode
 
 Return value:
 * a socket file descriptor
