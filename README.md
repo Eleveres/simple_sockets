@@ -292,6 +292,9 @@ Modes:
 * c or cx: print the printable bytes as characters and the rest as hexadecimal 
 * cd: print the printable bytes as characters and the rest as decimals 
 
+## TODO:
+* Add polling functions
+
 ## Author
 
 * **Ravi Pousseur**
