@@ -28,12 +28,12 @@ bool sendall(int32_t sock, void *buffer, uint32_t len, struct sockaddr *addr, so
 bool recvall(int32_t sock, void *buffer, uint32_t len, struct sockaddr *addr, socklen_t *addr_len);
 
 /* encoding functions */
-void encode_64bit(uint64_t n, uint8_t *byetarray, uint16_t index);
-void encode_32bit(uint32_t n, uint8_t *byetarray, uint16_t index);
-void encode_16bit(uint16_t n, uint8_t *byetarray, uint16_t index);
-uint64_t decode_64bit(uint8_t *byetarray, uint16_t index);
-uint32_t decode_32bit(uint8_t *byetarray, uint16_t index);
-uint16_t decode_16bit(uint8_t *byetarray, uint16_t index);
+void encode_64bit(uint64_t n, uint8_t *byetarray);
+void encode_32bit(uint32_t n, uint8_t *byetarray);
+void encode_16bit(uint16_t n, uint8_t *byetarray);
+uint64_t decode_64bit(uint8_t *byetarray);
+uint32_t decode_32bit(uint8_t *byetarray);
+uint16_t decode_16bit(uint8_t *byetarray);
 
 /* extra functions */
 void print_bytearray(void *array, uint64_t array_len, const char *mode);
