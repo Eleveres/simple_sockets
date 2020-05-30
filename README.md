@@ -51,7 +51,7 @@ int main(void) {
 	/* Receive the header containing the file's size and 
 	allocate a buffer to store the data */ 
 	recvall(client_sock, header, HEADER_LENGTH, NULL, NULL);
-	data_len = decode_64bit(header, 0);
+	data_len = decode_64bit(header);
 	raw_data = malloc(data_len);
 	
 	/* Finally, receive the raw data and write it to a file */
@@ -88,7 +88,7 @@ int main(void) {
 
 	/* Encode the size of the file in the 8 first bytes of our buffer
 	and then send the total to the server */
-	encode_64bit(info.st_size, raw_data, 0);
+	encode_64bit(info.st_size, raw_data);
 	server_sock = connect_to_server("127.0.0.1", "8000");
 	sendall(server_sock, raw_data, HEADER_LENGTH + info.st_size, NULL, 0);
 }
@@ -238,13 +238,12 @@ respectively.
 
 ### encode_nbit():
 ```C
-void encode_64bit(uint64_t n, uint8_t *buffer, uint16_t index);
-void encode_32bit(uint32_t n, uint8_t *buffer, uint16_t index);
-void encode_16bit(uint16_t n, uint8_t *buffer, uint16_t index);
+void encode_64bit(uint64_t n, uint8_t *buffer);
+void encode_32bit(uint32_t n, uint8_t *buffer);
+void encode_16bit(uint16_t n, uint8_t *buffer);
 ```
 Parameters:
 * bytearray: the bytearray to encode the number to
-* index: the index of the byterray where the number should be encoded
 
 Return value:
 * None
@@ -255,13 +254,12 @@ Description:
 
 ### decode_nbit():
 ```C
-uint64_t decode_64bit(uint8_t *byetarray, uint16_t index);
-uint32_t decode_32bit(uint8_t *byetarray, uint16_t index);
-uint16_t decode_16bit(uint8_t *byetarray, uint16_t index);
+uint64_t decode_64bit(uint8_t *byetarray);
+uint32_t decode_32bit(uint8_t *byetarray);
+uint16_t decode_16bit(uint8_t *byetarray);
 ```
 Parameters:
 * bytearray: the bytearray to decode the number from
-* index: the index of the byterray where the number to be decoded is found
 
 Return value:
 * The decoded value in a 16, 32 or 64 bit integer, depending on the used function
