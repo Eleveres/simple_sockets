@@ -1,5 +1,5 @@
 #include "../simple_socket.h"
-
+#include "errno.h"
 
 bool sendall(int32_t sock, void *buffer, int32_t len,
                 struct sockaddr *addr, socklen_t addr_len)
@@ -12,11 +12,8 @@ bool sendall(int32_t sock, void *buffer, int32_t len,
     int32_t total_sent = 0;
 
     while (total_sent < len) {
-        if ((sent = sendto(sock, buffer_ptr, len, 0, 
-                                (struct sockaddr *)addr, addr_len)) < 0) {
-            printf("%d\n", sent);
+        if ((sent = sendto(sock, buffer_ptr, len, 0, addr, addr_len)) < 0)
             return false;
-        }
         total_sent += sent;
         buffer_ptr += sent;
     }
