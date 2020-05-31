@@ -21,8 +21,7 @@ int32_t create_ipv6_server(uint16_t server_port, uint8_t protocol,
         fcntl(sock, F_SETFL, O_NONBLOCK);
     if (setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &(int){1}, sizeof(int)) < 0)
         return -1;
-    if (protocol == TCP)
-        if (bind(sock, (struct sockaddr *)&addr, sizeof(addr)) < 0)
-            return -1;
+    if (bind(sock, (struct sockaddr *)&addr, sizeof(addr)) < 0)
+        return -1;
     return sock;
 }
