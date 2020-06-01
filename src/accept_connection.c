@@ -19,7 +19,7 @@ int32_t accept_connection(int32_t server_sock, struct sockaddr *addr,
             return -1;
     }
     else {
-        if ((sock = accept(server_sock, (struct sockaddr *)addr, addr_len)) < 0)
+        if ((sock = accept(server_sock, addr, addr_len)) < 0)
             return -1;
     }
     recvall(sock, NULL, 0, NULL, NULL);
