@@ -42,7 +42,7 @@ bool recvall(int32_t sock, void *buffer, int32_t len,
     while (out_index < len) {
         in_index = 0;
         recv_length = recvfrom(sock, in_buffer, BUFFER_SIZE, 0, 
-                            (struct sockaddr *)addr, addr_len);
+                                addr, addr_len);
         if (recv_length <= 0) return false;
         while (out_index < len && in_index < recv_length)
             out_buffer[out_index++] = in_buffer[in_index++];

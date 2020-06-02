@@ -10,6 +10,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <fcntl.h>
+#include <poll.h>
 
 
 #define MAX_CONNECTIONS 64
