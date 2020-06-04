@@ -1,5 +1,4 @@
-#include "../simple_socket.h"
-#include "errno.h"
+#include "../simple_sockets.h"
 
 bool sendall(int32_t sock, void *buffer, int32_t len,
                 struct sockaddr *addr, socklen_t addr_len)
