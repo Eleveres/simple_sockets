@@ -17,7 +17,7 @@ make
 ### Compiling
 
 ```
-gcc example.c -lsimple_sockets
+gcc example.c simple_sockets.a
 ```
 
 ## A simple client/server example to send a photo using simple_sockets
