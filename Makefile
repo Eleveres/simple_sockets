@@ -1,4 +1,4 @@
-NAME = libsimple_socket.a
+NAME = libsimple_sockets.a
 
 CC = gcc
 
