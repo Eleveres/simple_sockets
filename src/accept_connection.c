@@ -13,9 +13,10 @@ int32_t accept_connection(int32_t server_sock, struct sockaddr *addr,
     int32_t sock;
 
     if (addr == NULL) {
-        struct addrinfo addr_lost;
-        if ((sock = accept(server_sock, (struct sockaddr *)addr_lost.ai_addr, 
-                &addr_lost.ai_addrlen)) < 0)
+        struct sockaddr_in addr_lost;
+        socklen_t addr_lost_len;
+        if ((sock = accept(server_sock, (struct sockaddr *)&addr_lost, 
+                &addr_lost_len)) < 0)
             return -1;
     }
     else {
