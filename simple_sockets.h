@@ -38,3 +38,4 @@ uint16_t decode_16bit(uint8_t *byetarray);
 
 /* extra functions */
 void print_bytearray(void *array, uint64_t array_len, const char *mode);
+void print_bytearray_rows(void *array, uint64_t array_len, const char *mode, uint8_t row_size);
